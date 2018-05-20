@@ -24,7 +24,6 @@
 import InputTranslation from './components/InputTranslation'
 import OutputTranslation from './components/OutputTranslation'
 import axios from 'axios'
-import { apiKey } from './config/apiconfig.js'
 
 export default {
   name: 'App',
@@ -54,7 +53,9 @@ export default {
       }
       axios
         .post(
-          `https://translation.googleapis.com/language/translate/v2?key=${apiKey}`,
+          `https://translation.googleapis.com/language/translate/v2?key=${
+            process.env.APIKEY
+          }`,
           {
             source: formData.sourceLanguage,
             target: formData.targetLanguage,

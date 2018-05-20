@@ -27,11 +27,12 @@
       </el-row>
     </el-form>
   </el-card>
+
 </template>
 
 <script>
 import axios from 'axios'
-import { apiKey } from '../config/apiconfig.js'
+
 export default {
   name: 'InputTranslation',
   data() {
@@ -82,7 +83,7 @@ export default {
       .get(
         `https://translation.googleapis.com/language/translate/v2/languages?target=${
           this.browserLanguage
-        }&key=${apiKey}`
+        }&key=${process.env.APIKEY}`
       )
       .then(resopnse => {
         this.languages = resopnse.data.data.languages
